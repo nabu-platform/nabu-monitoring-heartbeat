@@ -1,0 +1,6 @@
+<structure collectionName="heartbeatApplications" comment="The application you want to monitor, you can set up multiple monitors and reactions etc per application" name="heartbeatApplication">
+    <field name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" primaryKey="true" type="java.util.UUID"/>
+    <field comment="For multi tenancy" minOccurs="0" name="ownerId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field name="name" type="java.lang.String"/>
+    <field minOccurs="0" name="description" type="java.lang.String"/>
+</structure>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.web.component.WebComponentManager" created="2023-12-07T10:33:22.045+01:00" lastModified="2023-12-07T10:33:28.797+01:00" leaf="true" version="3">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.monitoring.heartbeat.crud.hearbeatEndpoint</references>
+    <references>nabu.monitoring.heartbeat.crud.heartbeatApplication</references>
+    <references>nabu.monitoring.heartbeat.crud.heartbeatEndpointCheck</references>
+</node>

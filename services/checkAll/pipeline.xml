@@ -1,0 +1,12 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field minOccurs="0" name="connectionId" type="java.lang.String"/>
+    </structure>
+    <structure name="output"/>
+    <structure collectionName="hearbeatEndpoints" definition="nabu.monitoring.heartbeat.database.types.hearbeatEndpoint" maxOccurs="unbounded" minOccurs="0" name="endpoints"/>
+    <field minOccurs="0" name="server" type="java.lang.String"/>
+    <structure collectionName="heartbeatEndpointChecks" definition="nabu.monitoring.heartbeat.crud.heartbeatEndpointCheck.types.output" name="created"/>
+    <structure collectionName="heartbeatApplications" definition="nabu.monitoring.heartbeat.crud.heartbeatApplication.types.output" maxOccurs="unbounded" minOccurs="0" name="applications"/>
+    <structure collectionName="heartbeatEndpointChecks" definition="nabu.monitoring.heartbeat.crud.heartbeatEndpointCheck.types.createInput" name="createInput" restrict="id"/>
+    <field minOccurs="0" name="maximumStopped" type="java.util.Date"/>
+</structure>

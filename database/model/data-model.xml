@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataModel>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.monitoring.heartbeat.database.types.heartbeatApplication</type>
+        <x>154</x>
+        <y>96</y>
+    </entries>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.monitoring.heartbeat.database.types.hearbeatEndpoint</type>
+        <x>723</x>
+        <y>146</y>
+    </entries>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.monitoring.heartbeat.database.types.heartbeatEndpointCheck</type>
+        <x>1277</x>
+        <y>272</y>
+    </entries>
+</dataModel>

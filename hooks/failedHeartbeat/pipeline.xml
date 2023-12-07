@@ -1,0 +1,8 @@
+<structure name="pipeline">
+    <structure name="input">
+        <structure collectionName="heartbeatApplications" comment="The application you want to monitor, you can set up multiple monitors and reactions etc per application" definition="nabu.monitoring.heartbeat.database.types.heartbeatApplication" name="application"/>
+        <structure collectionName="hearbeatEndpoints" definition="nabu.monitoring.heartbeat.database.types.hearbeatEndpoint" name="endpoint"/>
+        <structure collectionName="heartbeatEndpointChecks" definition="nabu.monitoring.heartbeat.database.types.heartbeatEndpointCheck" name="check"/>
+    </structure>
+    <structure name="output"/>
+</structure>

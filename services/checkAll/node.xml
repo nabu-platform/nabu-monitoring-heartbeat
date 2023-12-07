@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2023-12-07T10:51:56.860+01:00" lastModified="2023-12-07T16:51:46.753+01:00" leaf="true" version="32">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.monitoring.heartbeat.crud.heartbeatEndpointCheck.types.output</references>
+    <references>nabu.monitoring.heartbeat.utils.getEndpointsToCheck</references>
+    <references>java.util.Date</references>
+    <references>nabu.utils.Date.now</references>
+    <references>nabu.monitoring.heartbeat.hooks.failedHeartbeat</references>
+    <references>nabu.monitoring.heartbeat.crud.heartbeatApplication.types.output</references>
+    <references>nabu.monitoring.heartbeat.services.check</references>
+    <references>nabu.utils.Server.getServerName</references>
+    <references>nabu.utils.Date.diff</references>
+    <references>nabu.services.jdbc.Services.update</references>
+    <references>nabu.monitoring.heartbeat.database.types.hearbeatEndpoint</references>
+    <references>nabu.monitoring.heartbeat.crud.heartbeatEndpointCheck.types.createInput</references>
+    <references>nabu.monitoring.heartbeat.crud.heartbeatApplication.services.list</references>
+    <references>java.lang.String</references>
+    <references>nabu.monitoring.heartbeat.crud.heartbeatEndpointCheck.services.create</references>
+    <references>nabu.utils.Date.incrementDuration</references>
+</node>

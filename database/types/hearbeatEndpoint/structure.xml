@@ -1,0 +1,11 @@
+<structure collectionName="hearbeatEndpoints" name="hearbeatEndpoint">
+    <field name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" primaryKey="true" type="java.util.UUID"/>
+    <field name="name" type="java.lang.String"/>
+    <field name="endpoint" type="java.net.URI"/>
+    <field foreignKey="nabu.monitoring.heartbeat.database.types.heartbeatApplication:id" name="heartbeatApplicationId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field comment="How often do you want to check it? The least amount is 30s." minOccurs="0" name="pollInterval" type="be.nabu.libs.types.base.Duration"/>
+    <field comment="What is the maximum amount of time a call can take before we consider it problematic. If not filled in, any duration is ok" minOccurs="0" name="callDurationThreshold" type="be.nabu.libs.types.base.Duration"/>
+    <field comment="You can add an additional script that will check for some particular eventuality (e.g. parse xml and check a value). Should return &quot;true&quot; or &quot;false&quot; indicating success or failure." minOccurs="0" name="validationScript" type="java.lang.String"/>
+    <field comment="When did we check last? Useful for seeing which ones need to be rechecked" minOccurs="0" name="lastChecked" timezone="UTC" type="java.util.Date"/>
+    <field comment="Whether or not it is enabled" name="enabled" type="java.lang.Boolean"/>
+</structure>

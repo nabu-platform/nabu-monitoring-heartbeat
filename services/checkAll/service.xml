@@ -1,0 +1,500 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="e2ebef08805c40fd876e373a49c4322e"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="9a7542e75301456e8b0e6b2552ca03fd"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="5db4ac962ff44cfeb1d2dc8a8372e6e8"
+				serviceId="nabu.monitoring.heartbeat.utils.getEndpointsToCheck"
+				resultName="result1752e3f1b36c45f097636213e6fffe81"
+				temporaryMapping="true"
+				x="416"
+				y="95"
+				invocationOrder="1"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="5d07ba1da7ce49ceb2175e971c656642"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/connectionId</from>
+				<to>connection</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="fb9a1f576a2441d283b57c72d8adff5c"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resultd2bfb7342dcf4044ab1b55edc0953017/date</from>
+				<to>parameters/currentTimestamp</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="f1bfe23c29f4454ba9de300f085d519c"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result1752e3f1b36c45f097636213e6fffe81/results</from>
+			<to>endpoints</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="18ab3e86adde4837bdf9fb8b0276159c"
+				serviceId="nabu.utils.Date.now"
+				resultName="resultd2bfb7342dcf4044ab1b55edc0953017"
+				temporaryMapping="true"
+				x="89"
+				y="176"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="25b4baaa810a48ff9f562ecb3678255c"
+				serviceId="nabu.utils.Server.getServerName"
+				resultName="resultb75b9b2c487e428d9dfb79ad9c00e3d7"
+				temporaryMapping="true"
+				x="784"
+				y="301"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="28fa55188b7a41ceac7e59d49f8d0744"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resultb75b9b2c487e428d9dfb79ad9c00e3d7/server</from>
+			<to>server</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Get the applications as well (for signaling)"
+			disabled="false"
+			id="4aefaacd148447a78c6ac591d20ae0a2"
+			label="endpoints"
+			lineNumber="3">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="d3ab1f3d57f44fa489f804285b8ebeb3"
+				serviceId="nabu.monitoring.heartbeat.crud.heartbeatApplication.services.list"
+				resultName="result54eb70e939e84299827270d57be4a57e"
+				temporaryMapping="true"
+				x="245"
+				y="103"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="6fe4462226394602bec0f2d0ab4819e1"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/connectionId</from>
+				<to>connectionId</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="ee144894ccf442608f5bcd18e2838e6f"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>endpoints/heartbeatApplicationId</from>
+				<to>filter/id</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="a82fa24e43a34ab3a5faa9fad4b3711c"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result54eb70e939e84299827270d57be4a57e/results</from>
+			<to>applications</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.For"
+			disabled="false"
+			id="645771cd80e6461ab2afab4bdcae932d"
+			lineNumber="4"
+			variable="endpoint">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="f7115cd8467445c8aa1eed11b49e9394"
+				lineNumber="5">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="42c9c2abb886445cac70f846c91c746d"
+					serviceId="nabu.monitoring.heartbeat.services.check"
+					resultName="resultdc4c25a6c5f249cbba549938f44d98a7"
+					temporaryMapping="true"
+					x="67"
+					y="101"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="a59b5cb5aa174f3fa46d00001069590a"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>endpoint/endpoint</from>
+					<to>endpoint</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="5c635fecf8594c9086d77f36e05a1802"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>endpoint/validationScript</from>
+					<to>validationScript</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="f3717e561e8643258504e6be684fb26d"
+					serviceId="nabu.utils.Date.diff"
+					resultName="result976b5249e92a4cfd90fea9ef411303e9"
+					temporaryMapping="true"
+					x="99"
+					y="288"
+					invocationOrder="1"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="c15cafa0f96342bb80271c5970a3734b"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>resultdc4c25a6c5f249cbba549938f44d98a7/started</from>
+					<to>start</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="d18f1ae8434042b3879f676052921c0b"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>resultdc4c25a6c5f249cbba549938f44d98a7/stopped</from>
+					<to>end</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="5a38213049514415b1f57cdf3f1c68ec"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>MILLISECONDS</from>
+					<to>unit</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="038699525a1e4137a610ee4b84e3b4e3"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resultdc4c25a6c5f249cbba549938f44d98a7/started</from>
+				<to>createInput/started</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="eb9933b4b20340a9a59c009f73b22a54"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resultdc4c25a6c5f249cbba549938f44d98a7/stopped</from>
+				<to>createInput/stopped</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="a77c7ad2f87f44efbb2b8632df831c9f"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resultdc4c25a6c5f249cbba549938f44d98a7/state</from>
+				<to>createInput/state</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="75f318bf6d0a4b5a90c8a8122100cf1d"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resultdc4c25a6c5f249cbba549938f44d98a7/responseCode</from>
+				<to>createInput/responseCode</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="be1159ba7ac54fab91bf15c8031e9c0f"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resultdc4c25a6c5f249cbba549938f44d98a7/responseContent</from>
+				<to>createInput/responseContent</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="2a1d668074b9471c898820c34d80e534"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resultdc4c25a6c5f249cbba549938f44d98a7/reason</from>
+				<to>createInput/reason</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="4fa4b56748b8412b995d5ca13b4df47f"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result976b5249e92a4cfd90fea9ef411303e9/diff</from>
+				<to>createInput/duration</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="7057ab7299774ba48ba43aeade04d261"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>endpoint/id</from>
+				<to>createInput/heartbeatEndpointId</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="aa9b0c578d274f0897bc70a5dfce52ef"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>server</from>
+				<to>createInput/server</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="b9ec52016edf44f28f9f03e532c9858f"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resultdc4c25a6c5f249cbba549938f44d98a7/started</from>
+				<to>endpoint/lastChecked</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
+				comment="If we have a maximum on duration, check that we didn't go on too long"
+				disabled="false"
+				id="4a629bc1b7c84ddabb5697499eefb6a2"
+				label="endpoint/callDurationThreshold != null &amp;&amp; createInput/state == &quot;SUCCEEDED&quot;"
+				lineNumber="6">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					disabled="false"
+					id="58febcadf9cd4a499940d545cdcd5bba"
+					lineNumber="7">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="3941319865b04fa0810c2a998c2639e1"
+						serviceId="nabu.utils.Date.incrementDuration"
+						resultName="resulte471e5f9f9144a2ea9336db38ba4936d"
+						temporaryMapping="true"
+						x="96"
+						y="71"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="98245d6c42cd4a0d87b899cf98c4b777"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>createInput/started</from>
+						<to>start</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="56535e3ed4bf4bacbec127b099b07b0e"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>endpoint/callDurationThreshold</from>
+						<to>duration</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="ee859efadf8341a1a06c01e0020068c5"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>resulte471e5f9f9144a2ea9336db38ba4936d/date</from>
+					<to>maximumStopped</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					comment="If we went over the time limit, log as failure"
+					disabled="false"
+					id="38929f5fdc424108b918d6bbfea19cf0"
+					label="createInput/stopped &gt; maximumStopped"
+					lineNumber="8">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="38387f36111b4326bbd67e900519c340"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>FAILED</from>
+					<to>createInput/state</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="e4f458c34ce94617bf9e64492e181719"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>call-duration</from>
+					<to>createInput/reason</to>
+				</steps>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="c01f3f9566fd4660ae1fc1ddc09f48bf"
+				lineNumber="9">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="8acad175bcb54f849e16672ce88e969d"
+					serviceId="nabu.monitoring.heartbeat.crud.heartbeatEndpointCheck.services.create"
+					resultName="result66d3d2ef98104a84838338b6bd769013"
+					temporaryMapping="true"
+					x="310"
+					y="207"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="e1c959b51ef04c908d2f2353e5ffeae1"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>createInput</from>
+					<to>instance</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="12449bb961474119b5ec399e9f891620"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>input/connectionId</from>
+					<to>connectionId</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="ba6b1b4408f044688330ada3deca7f63"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result66d3d2ef98104a84838338b6bd769013/created</from>
+				<to>created</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="a4766050548347669e66bb59cd6f89cb"
+				label="created/state == &quot;FAILED&quot;"
+				lineNumber="10">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="16268796e0514d57abd8d5e805d23df2"
+					serviceId="nabu.monitoring.heartbeat.hooks.failedHeartbeat"
+					resultName="resultae8fcda7a1b241e5af49f16e10f53904"
+					temporaryMapping="true"
+					x="312"
+					y="139"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="22ae5ba275c447f0921194265d270f6b"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>applications[id == /endpoint/heartbeatApplicationId]</from>
+					<to>application</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="934126bd578446c28b41557ad9b95a34"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>endpoint</from>
+					<to>endpoint</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="1a6c9a2d4e78422190a2eb2f72a6bbe5"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>created</from>
+					<to>check</to>
+				</steps>
+			</steps>
+		</steps>
+		<query>endpoints</query>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="f26be19f98034472a5261bff683d75d0"
+			label="endpoints"
+			lineNumber="11">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="ae90e8f803304a18bfab28ffe211914a"
+				serviceId="nabu.services.jdbc.Services.update"
+				resultName="result88ebe91c1dd04e229ca08288538cc338"
+				temporaryMapping="true"
+				x="83"
+				y="60"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="dcec32015d43437db2c9a438d0b88c0e"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>endpoints</from>
+				<to>instances</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="b1dcc56f9c5c4485aaee5669afaa957b"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/connectionId</from>
+				<to>connection</to>
+			</steps>
+		</steps>
+	</steps>
+</sequence>

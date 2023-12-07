@@ -1,0 +1,17 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="endpoint" type="java.net.URI"/>
+        <field minOccurs="0" name="validationScript" type="java.lang.String"/>
+    </structure>
+    <structure name="output">
+        <field name="started" type="java.util.Date"/>
+        <field name="stopped" type="java.util.Date"/>
+        <field name="state" type="java.lang.String"/>
+        <field minOccurs="0" name="responseCode" type="java.lang.Long"/>
+        <field minOccurs="0" name="responseContent" type="java.lang.String"/>
+        <field minOccurs="0" name="reason" type="java.lang.String"/>
+    </structure>
+    <structure definition="be.nabu.libs.http.api.HTTPResponse" minOccurs="0" name="response"/>
+    <field minOccurs="0" name="content" type="java.lang.String"/>
+    <field name="success" type="java.lang.Boolean"/>
+</structure>

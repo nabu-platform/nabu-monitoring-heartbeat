@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.jdbc.JDBCServiceManager" created="2023-12-07T10:59:54.687+01:00" lastModified="2023-12-07T11:06:26.841+01:00" leaf="false" version="7">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>java.lang.String</references>
+    <references>java.lang.Long</references>
+    <references>java.lang.Integer</references>
+    <references>java.lang.Boolean</references>
+    <references>be.nabu.libs.services.jdbc.AffixInput</references>
+    <references>nabu.monitoring.heartbeat.utils.getEndpointsToCheck.parameters</references>
+    <references>be.nabu.libs.types.api.KeyValuePair</references>
+    <references>nabu.monitoring.heartbeat.database.types.hearbeatEndpoint</references>
+    <references>java.lang.Long</references>
+    <references>java.lang.Boolean</references>
+</node>

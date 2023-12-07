@@ -1,0 +1,8 @@
+<structure name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <field maxOccurs="unbounded" name="connectionIds" type="java.lang.String"/>
+    <field minOccurs="0" name="started" type="java.util.Date"/>
+    <field name="diff" type="java.lang.Double"/>
+    <field name="amountToSleep" type="java.lang.Long"/>
+</structure>
