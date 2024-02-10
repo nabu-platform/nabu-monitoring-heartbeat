@@ -163,6 +163,15 @@
 					<from>endpoint/validationScript</from>
 					<to>validationScript</to>
 				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="1fbe89325e4346a3932907fc85441f1b"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>endpoint/callDurationThreshold</from>
+					<to>timeout</to>
+				</steps>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 					disabled="false"

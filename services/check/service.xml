@@ -61,6 +61,24 @@
 				<from>GET</from>
 				<to>method</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="e7b0970ae43b4aa294a413a354f3480b"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/timeout</from>
+				<to>timeout</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="8c5f8fde2268464da06756b3636d15b4"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>MILLISECONDS</from>
+				<to>timeoutUnit</to>
+			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 				disabled="false"

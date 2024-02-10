@@ -1,10 +1,10 @@
 <structure collectionName="heartbeatEndpointChecks" name="heartbeatEndpointCheck">
     <field name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" primaryKey="true" type="java.util.UUID"/>
-    <field foreignKey="nabu.monitoring.heartbeat.database.types.hearbeatEndpoint:id" name="heartbeatEndpointId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
-    <field name="started" timezone="UTC" type="java.util.Date"/>
+    <field foreignKey="nabu.monitoring.heartbeat.database.types.hearbeatEndpoint:id" indexed="true" name="heartbeatEndpointId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field indexed="true" name="started" timezone="UTC" type="java.util.Date"/>
     <field name="stopped" timezone="UTC" type="java.util.Date"/>
     <field name="duration" type="java.lang.Long"/>
-    <field comment="SUCCEEDED, FAILED" name="state" type="java.lang.String"/>
+    <field comment="SUCCEEDED, FAILED" indexed="true" name="state" type="java.lang.String"/>
     <field minOccurs="0" name="responseCode" type="java.lang.Long"/>
     <field minOccurs="0" name="responseContent" type="java.lang.String"/>
     <field comment="Why did it fail? Unreachable, threshold met, validation rule failed...?" minOccurs="0" name="reason" type="java.lang.String"/>
