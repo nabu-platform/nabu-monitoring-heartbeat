@@ -1,7 +1,7 @@
 <jdbcService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<outputDefinition>nabu.monitoring.heartbeat.database.types.hearbeatEndpoint</outputDefinition>
 	<sql>select *
-from ~hearbeat_endpoints he
+from ~heartbeat_endpoints he
 where he.enabled = true
 	and (he.poll_interval is null or he.last_checked is null or he.last_checked &lt; :currentTimestamp - he.poll_interval)</sql>
 </jdbcService>

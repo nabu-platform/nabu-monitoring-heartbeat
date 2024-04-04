@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.services.jdbc.JDBCServiceManager" created="2023-12-07T10:59:54.687+01:00" lastModified="2023-12-07T11:06:26.841+01:00" leaf="false" version="7">
+<node artifactManager="be.nabu.eai.module.services.jdbc.JDBCServiceManager" created="2023-12-07T10:59:54.687+01:00" lastModified="2024-04-02T13:57:40.850+02:00" leaf="false" version="9">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
@@ -12,6 +12,7 @@
     <references>nabu.monitoring.heartbeat.utils.getEndpointsToCheck.parameters</references>
     <references>be.nabu.libs.types.api.KeyValuePair</references>
     <references>nabu.monitoring.heartbeat.database.types.hearbeatEndpoint</references>
+    <references>be.nabu.libs.services.jdbc.api.Statistic</references>
     <references>java.lang.Long</references>
     <references>java.lang.Boolean</references>
 </node>
